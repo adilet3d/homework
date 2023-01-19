@@ -91,7 +91,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = 'myapp.Author'
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -124,7 +124,7 @@ REST_FRAMEWORK = {
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'Asia-Bishkek'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 
