@@ -15,7 +15,7 @@ class Author(AbstractUser):
     book_category=models.ForeignKey(BookCategory,on_delete=models.CASCADE,related_name='authors',null=True,blank=True)
 
     def __str__(self) -> str:
-        return self.pseudonym
+        return self.username
 
 class Book(models.Model):
     name= models.CharField(max_length=120,verbose_name='Имя')
