@@ -2,12 +2,7 @@ from rest_framework import serializers , exceptions
 from myapp.models import Book,BookCategory, Author
 
 
-class BookCategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model=BookCategory
-        fields=(
-            'id','name','image',
-        )
+
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model= Author
@@ -26,6 +21,13 @@ class BookSerializer(serializers.ModelSerializer):
         # )
         read_only_fields=(
             'book_category','author',
+        )
+class BookCategorySerializer(serializers.ModelSerializer):
+    books = BookSerializer(many=True, read_only=True)
+    class Meta:
+        model=BookCategory
+        fields=(
+            '__all__'
         )
 class RegistrationSerializer(serializers.Serializer):
     username= serializers.CharField()

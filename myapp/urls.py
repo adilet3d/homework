@@ -1,6 +1,6 @@
 from django.urls  import path
 from rest_framework.routers import DefaultRouter    as DR
-from myapp.views import (BookView,CategoryView,AuthorView )
+from myapp.views import (BookView,CategoryView,AuthorView,RegistrationView,AuthorizationView)
 
 router=DR()
 router.register('book_categories',CategoryView,basename='book_category')
