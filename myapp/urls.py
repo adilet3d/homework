@@ -8,6 +8,9 @@ router.register('book',BookView,basename='book')
 router.register('author',AuthorView,basename='author')
 
 
-urlpatterns = []
+urlpatterns = [ 
+    path('reg/',RegistrationView.as_view()),
+    path('log/',AuthorizationView.as_view()),
+    ]
 
 urlpatterns += router.urls
