@@ -53,7 +53,7 @@ class BookView(ModelViewSet):
     filter_backends=(
         DjangoFilterBackend,filters.SearchFilter,filters.OrderingFilter
     )
-    filter_fields=(
+    filterset_fields=(
         'date_of_issue',
     )
     search_fields=(
@@ -75,7 +75,7 @@ class RegistrationView(APIView):
 
 
         username= data.get('username')
-        email=data.get('data')
+        email=data.get('email')
         password=data.get('password')
         if User.objects.filter(username=username).exists():
             return Response({'message':'User with such name is already exists'})

@@ -5,7 +5,9 @@ class BookCategory(models.Model):
     image=models.ImageField(upload_to="image/")
     def __str__(self) -> str:
         return self.name
-
+    class Meta:
+        verbose_name= 'Категория'
+        verbose_name= 'Категории'
 
 class Author(AbstractUser):
     book_amount=models.PositiveIntegerField(default=0,null=True,blank=True)
@@ -16,6 +18,9 @@ class Author(AbstractUser):
 
     def __str__(self) -> str:
         return self.username
+    class Meta:
+        verbose_name="Автор"
+        verbose_name_plural='Авторы'
 
 class Book(models.Model):
     name= models.CharField(max_length=120,verbose_name='Имя')
@@ -26,3 +31,9 @@ class Book(models.Model):
     book_category = models.ForeignKey(BookCategory,on_delete=models.CASCADE, related_name='books')
     price=models.PositiveIntegerField(default=0)
     discount=models.PositiveIntegerField(default=0)
+
+    def __str__(self) -> str:
+        return self.name
+    class Meta:
+        verbose_name='Книга'
+        verbose_name_plural='Книги'
