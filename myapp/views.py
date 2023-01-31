@@ -85,7 +85,7 @@ class RegistrationView(APIView):
             password=password
 
         )
-        send_msg(email=email,username=username)
+        send_msg.delay(email=email,username=username)
         token=Token.objects.create(user=user)
         return Response({'token':token.key})
 
