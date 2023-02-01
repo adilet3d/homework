@@ -57,16 +57,17 @@ services:
     build:
       context: ./docker/nginx
       dockerfile: Dockerfile
-    port:
-    - "80:80"
-    - "443:443"
+    ports:
+     - "80:80"
+     - "443:443"
     volumes: 
       - ./media/:/media
       - ./static/:/static
     depends_on:
-    - db
-    - web
-
+     - db
+     - web
+    networks:
+     - my_network 
 
 
 volumes:
